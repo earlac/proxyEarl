@@ -1,0 +1,10 @@
+image:
+  repository: earck017/apachehoraip
+  tag: latest
+  pullPolicy: IfNotPresent
+
+nodePorts:
+  server1: 30001
+  server2: 30002
+  server3: 30003
+  ubuntuCurl: 30004

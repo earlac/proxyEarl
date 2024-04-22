@@ -1,0 +1,33 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ubuntu-curl-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ubuntu-curl
+  template:
+    metadata:
+      labels:
+        app: ubuntu-curl
+    spec:
+      containers:
+        - name: ubuntu
+          image: ubuntu:latest
+          command: ["sleep", "infinity"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ubuntu-curl-service
+spec:
+  type: NodePort
+  selector:
+    app: ubuntu-curl
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      nodePort: {{ .Values.nodePorts.ubuntuCurl }}

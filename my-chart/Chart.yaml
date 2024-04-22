@@ -1,0 +1,6 @@
+apiVersion: v2
+name: apache
+description: A Helm chart for Apache HTTP Server deployments
+type: application
+version: 0.1.0
+appVersion: "1.16.0"
